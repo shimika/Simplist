@@ -108,6 +108,7 @@ namespace SimpList {
 
 				int nIndex = OrderProcess.GetSeasonItemIndex(sData.SortTag);
 				Grid grid = GetSeasonListItem(sData.Title, sData.LinkID, true);
+				grid.ToolTip = string.Format("({0}) {1}", sData.Time, sData.Title);
 				stackSeason.Children.Insert(nIndex, grid);
 			}
 
@@ -1023,6 +1024,7 @@ namespace SimpList {
 					if (sData.Keyword == "") { sData.Keyword = " "; }
 					DataStruct.dictSeason[nNowEdit / 10] = sData;
 
+					DataStruct.dictUI[nNowEdit].gBase.ToolTip = string.Format("({0}) {1}", sData.Time, sData.Title);
 					DataStruct.dictUI[nNowEdit].txtTitle.Text = sData.Title;
 				}
 				
@@ -1120,6 +1122,7 @@ namespace SimpList {
 
 					int nIndex = OrderProcess.GetSeasonItemIndex(addData.SortTag);
 					Grid grid = GetSeasonListItem(addData.Title, addData.LinkID, true);
+					grid.ToolTip = string.Format("({0}) {1}", addData.Time, addData.Title);
 					stackSeason.Children.Insert(nIndex, grid);
 				}
 			}
